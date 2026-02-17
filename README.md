@@ -1,30 +1,64 @@
-# 🤖 Algorithmic Trading System with ML & Stochastic Processes
+# 🤖 Full-Stack Algorithmic Trading Application
 
-Professional-grade algorithmic paper trading system featuring **13 trading strategies** including advanced Machine Learning and Stochastic Process models. Built with Python and integrated with Alpaca Paper Trading API.
+Professional-grade algorithmic trading platform featuring **13 trading strategies**, **web dashboard**, **portfolio management**, **risk analytics**, and **sentiment analysis**. Built with Python, Streamlit, and integrated with multiple data sources.
 
 ## 🚀 Features
 
-- **13 Professional Trading Strategies**
-  - 5 Classic Technical Analysis strategies (MACD, RSI, Bollinger Bands, etc.)
-  - 3 Machine Learning strategies (Random Forest, Gradient Boosting, Ensemble)
-  - 5 Stochastic Process strategies (Ornstein-Uhlenbeck, Kalman Filter, etc.)
+### **📊 Web Dashboard (NEW!)**
+- Interactive Streamlit web interface
+- Real-time portfolio monitoring
+- Live backtesting with visual results
+- Risk analytics dashboard
+- Sentiment analysis integration
 
-- **Comprehensive Backtesting Engine**
-  - Historical performance analysis
-  - Risk metrics (Sharpe, Sortino, Max Drawdown)
-  - Trade-by-trade logging
-  - Visual performance charts
+### **🤖 13 Professional Trading Strategies**
+- 5 Classic Technical Analysis strategies (MACD, RSI, Bollinger Bands, etc.)
+- 3 Machine Learning strategies (Random Forest, Gradient Boosting, Ensemble)
+- 5 Stochastic Process strategies (Ornstein-Uhlenbeck, Kalman Filter, etc.)
 
-- **Live Paper Trading**
-  - Integration with Alpaca Paper Trading API
-  - Automated signal generation
-  - Position management with stop-loss/take-profit
-  - Real-time monitoring
+### **💼 Portfolio Management System**
+- Track positions and cash
+- Trade history and performance
+- Position allocation analysis
+- P&L tracking and reporting
 
-- **Advanced Analytics**
-  - Technical indicators (RSI, MACD, Bollinger Bands, ATR, etc.)
-  - Performance metrics and reporting
-  - Risk management tools
+### **🔬 Advanced Risk Analytics**
+- Value at Risk (VaR & CVaR)
+- Beta and Alpha calculation
+- Tracking error and information ratio
+- Stress testing scenarios
+- Drawdown analysis
+
+### **📰 Sentiment Analysis (NEW!)**
+- News sentiment scoring
+- Social media monitoring
+- Sentiment-based trading signals
+- Divergence detection
+
+### **🎯 Factor Analysis (NEW!)**
+- Fama-French 3-factor model
+- Carhart 4-factor model
+- Factor exposure analysis
+- Investment style classification
+
+### **📈 Multiple Data Sources**
+- Yahoo Finance (yfinance)
+- Alpaca Markets API
+- Polygon.io support
+- Finnhub integration
+- Automatic failover
+
+### **⚙️ Comprehensive Backtesting**
+- Historical performance analysis
+- Risk metrics (Sharpe, Sortino, Max Drawdown)
+- Trade-by-trade logging
+- Visual performance charts
+
+### **🔴 Live Paper Trading**
+- Integration with Alpaca Paper Trading API
+- Automated signal generation
+- Position management with stop-loss/take-profit
+- Real-time monitoring
 
 ## 🏆 Best Performing Strategy
 
@@ -61,12 +95,21 @@ cp .env.example .env
 
 ## 🎯 Quick Start
 
-### List Available Strategies
+### Option 1: Web Dashboard (Recommended)
+```bash
+# Launch the interactive web application
+python launch_app.py
+```
+Then open your browser to `http://localhost:8501`
+
+### Option 2: Command Line
+
+#### List Available Strategies
 ```bash
 python main.py list-strategies
 ```
 
-### Run a Backtest
+#### Run a Backtest
 ```bash
 # Classic strategy
 python main.py backtest --symbols AAPL --strategy macd
@@ -78,7 +121,7 @@ python main.py backtest --symbols AAPL --strategy random_forest
 python main.py backtest --symbols AAPL --strategy kalman_filter
 ```
 
-### Start Paper Trading
+#### Start Paper Trading
 ```bash
 # Automatic start (no input required)
 python start_rf_trading.py
@@ -129,19 +172,37 @@ python start_live_trading.py
 
 ```
 quantfinnance/
-├── main.py                      # Main CLI interface
+# Core Application
+├── app.py                       # Streamlit web dashboard (NEW!)
+├── launch_app.py                # Dashboard launcher (NEW!)
+├── main.py                      # CLI interface
+
+# Data & Configuration
 ├── config.py                    # Configuration settings
-├── data_handler.py              # Market data fetching
-├── indicators.py                # Technical indicators
+├── data_handler.py              # Basic data fetching
+├── advanced_data_handler.py     # Multi-source data (NEW!)
+
+# Trading Strategies
 ├── strategies.py                # Classic strategies
 ├── ml_strategies.py             # Machine Learning strategies
 ├── stochastic_strategies.py     # Stochastic process strategies
+├── indicators.py                # Technical indicators
+
+# Trading Systems
 ├── backtester.py                # Backtesting engine
 ├── paper_trader.py              # Simulated trading
 ├── alpaca_trader.py             # Alpaca API integration
-├── visualizer.py                # Performance visualization
 ├── start_rf_trading.py          # Auto-start ML trading
 ├── start_live_trading.py        # Interactive trading start
+
+# Analytics & Management (NEW!)
+├── portfolio_manager.py         # Portfolio management (NEW!)
+├── risk_analytics.py            # Risk metrics & VaR (NEW!)
+├── factor_analysis.py           # Factor models (NEW!)
+├── sentiment_analyzer.py        # News & social sentiment (NEW!)
+
+# Visualization & Utilities
+├── visualizer.py                # Performance charts
 ├── requirements.txt             # Python dependencies
 └── .env.example                 # Environment template
 ```
